@@ -1,0 +1,14 @@
+<adapter-config name="WriteDB" adapter="db" wsdlLocation="../WSDLs/WriteDB.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="conexionpoller" location="eis/DB/conexionpoller"/>
+  <endpoint-interaction portType="WriteDB_ptt" operation="update">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="WriteDB.PollTable"/>
+      <property name="DmlType" value="update"/>
+      <property name="MappingsMetaDataURL" value="WriteDB-or-mappings.xml"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+      <property name="DetectOmissions" value="true"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

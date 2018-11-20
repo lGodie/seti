@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/WriteDB" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/WriteDB" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="PollTableCollection" type="PollTableCollection"/>
+   <xs:complexType name="PollTableCollection">
+      <xs:sequence>
+         <xs:element name="PollTable" type="PollTable" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PollTable">
+      <xs:sequence>
+         <xs:element name="pid" type="xs:int"/>
+         <xs:element name="estado" type="string16" minOccurs="0" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="string16">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="16"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

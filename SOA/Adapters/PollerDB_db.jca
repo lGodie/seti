@@ -1,0 +1,21 @@
+<adapter-config name="PollerDB" adapter="db" wsdlLocation="../WSDLs/PollerDB.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="conexionpoller" location="eis/DB/conexionpoller"/>
+  <endpoint-activation portType="PollerDB_ptt" operation="receive">
+    <activation-spec className="oracle.tip.adapter.db.DBActivationSpec">
+      <property name="DescriptorName" value="PollerDB.PollTable"/>
+      <property name="QueryName" value="PollerDBSelect"/>
+      <property name="MappingsMetaDataURL" value="PollerDB-or-mappings.xml"/>
+      <property name="PollingStrategy" value="LogicalDeletePollingStrategy"/>
+      <property name="MarkReadColumn" value="LEIDO"/>
+      <property name="MarkReadValue" value="SI"/>
+      <property name="MarkUnreadValue" value="NO"/>
+      <property name="PollingInterval" value="10"/>
+      <property name="MaxRaiseSize" value="1"/>
+      <property name="MaxTransactionSize" value="10"/>
+      <property name="NumberOfThreads" value="1"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

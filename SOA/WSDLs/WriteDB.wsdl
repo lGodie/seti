@@ -1,0 +1,28 @@
+<wsdl:definitions
+     name="WriteDB"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/TestSoaApp/Poller/WriteDB"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/TestSoaApp/Poller/WriteDB"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/WriteDB"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="WriteDB_plt" >
+    <plt:role name="WriteDB_role" >
+      <plt:portType name="tns:WriteDB_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/WriteDB" schemaLocation="../Schemas/WriteDB_table.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="PollTableCollection_msg">
+        <wsdl:part name="PollTableCollection" element="top:PollTableCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="WriteDB_ptt">
+        <wsdl:operation name="update">
+            <wsdl:input message="tns:PollTableCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
